@@ -1,0 +1,14 @@
+{
+  "app_host": "",
+  "app_port":,
+  "app_debugging": true,
+  "log_level": "DEBUG",
+  "path_logs": "main.log",
+  "dbpostgresql": {
+    "host": "",
+    "port": 5432,
+    "database": "",
+    "username": "",
+    "password": ""
+  }
+}
