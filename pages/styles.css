@@ -1,0 +1,17 @@
+/* styles.css */
+Screen {
+    background: #282c34;
+}
+
+.custom-button {
+    width: 50%;
+    margin: 1 1 1 1;
+    background: #61dafb;
+    color: #000000;
+    border: solid #282c34;  /* Ajuste en la propiedad border */
+}
+
+Header, Footer {
+    background: #20232a;
+    color: #61dafb;
+}

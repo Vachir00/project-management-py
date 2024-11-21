@@ -1,16 +1,4 @@
-# pages/settings/setting_ui.py
-from textual.containers import Vertical
-from textual.widgets import Placeholder
-from textual import events
-
-
-class SettingUI(Vertical):
-    DEFAULT_CSS = """
-    SettingUI {
-        background: $boost;
-        color: $text;
-    }
-    """
-
-    def compose(self):
-        yield Placeholder("Setting UI")
+def settings_ui(stdscr):
+    stdscr.clear()
+    stdscr.addstr(0, 0, "Settings Page - Press any key to return")
+    stdscr.getch()
