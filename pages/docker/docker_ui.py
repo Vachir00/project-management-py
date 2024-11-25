@@ -1,11 +1,8 @@
-import curses
+from modules.udefined_views import main_menu
 from pages.docker.docker_manager import list_containers, list_images, list_volumes
 
 
 def docker_ui(stdscr):
-    curses.start_color()
-    curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_CYAN)
-    curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_BLACK)
 
     options = [
         "Contenedores",
@@ -18,38 +15,7 @@ def docker_ui(stdscr):
         show_volumes
     ]
 
-    current_option = 0
-
-    while True:
-        stdscr.clear()
-        h, w = stdscr.getmaxyx()
-
-        for idx, option in enumerate(options):
-            x = w // 2 - len(option) // 2
-            y = h // 2 - len(options) // 2 + idx * 2
-            if idx == current_option:
-                stdscr.attron(curses.color_pair(1))
-                stdscr.addstr(y, x, f"[ {option} ]")
-                stdscr.attroff(curses.color_pair(1))
-            else:
-                stdscr.attron(curses.color_pair(2))
-                stdscr.addstr(y, x, f"  {option}  ")
-                stdscr.attroff(curses.color_pair(2))
-
-        key = stdscr.getch()
-
-        if key == curses.KEY_UP and current_option > 0:
-            current_option -= 1
-        elif key == curses.KEY_DOWN and current_option < len(options) - 1:
-            current_option += 1
-        elif key == curses.KEY_ENTER or key in [10, 13]:
-            stdscr.clear()
-            functions[current_option](stdscr)
-            stdscr.clear()
-        elif key == 27:  # Tecla ESC para salir
-            break
-
-        stdscr.refresh()
+    main_menu(stdscr, "test123", options, functions)
 
 
 def show_containers(stdscr):

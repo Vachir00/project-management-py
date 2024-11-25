@@ -1,3 +1,5 @@
+#!/opt/somecode/Github/project-management-py/.venv/bin/python
+
 import curses
 from pages.routes import show_routes
 
